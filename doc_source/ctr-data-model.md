@@ -170,8 +170,8 @@ Type: String
 The record format version\.  
 Type: String
 
-**Campaign**
-Type: [Campaign](#ctr-campaign)
+**Campaign**  
+Type: [Campaign](#ctr-campaign)  
 
 **Channel**  
 How the contact reached your contact center\.  

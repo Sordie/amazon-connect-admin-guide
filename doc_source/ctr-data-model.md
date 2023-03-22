@@ -111,6 +111,11 @@ Type: [AgentHierarchyGroup](#ctr-AgentHierarchyGroup)
 The group at level five of the agent hierarchy\.  
 Type: [AgentHierarchyGroup](#ctr-AgentHierarchyGroup)
 
+## Campaign<a name="ctr-campaign"></a>
+
+**CampaignId**  
+Type: String | `null`  
+
 ## ContactDetails<a name="ctr-contact-details"></a>
 
 Contains user\-defined attributes which are lightly typed within the contact\. 
@@ -146,6 +151,12 @@ The number of times Amazon Connect attempted to connect this contact with an age
 Type: Integer  
 Min value: 0
 
+**AnsweringMachineDetectionStatus**
+Type: String | `null`  
+Valid values:
++ `AMD_UNRESOLVED`
++ `VOICEMAIL_BEEP`
+
 **Attributes**  
 The contact attributes, formatted as a map of keys and values\.  
 Type: Attributes  
@@ -158,6 +169,9 @@ Type: String
 **AWSContactTraceRecordFormatVersion**  
 The record format version\.  
 Type: String
+
+**Campaign**
+Type: [Campaign](#ctr-campaign)
 
 **Channel**  
 How the contact reached your contact center\.  
@@ -270,6 +284,10 @@ If recording was enabled, this is information about the recording\.
 Type: Array of [RecordingsInfo](#ctr-RecordingsInfo)  
 The first recording for a contact will appear in both the Recording and Recordings sections of the contact record\.
 
+**References**  
+Contains links to other documents that are related to a contact\.  
+Type: Array of [Reference](#ctr-Reference)
+
 **RelatedContactId**  
 If this contact is associated with another contact, this is the identifier of the related contact\.  
 Type: String  
@@ -282,6 +300,9 @@ Type: String \(*yyyy*\-*mm*\-*dd*T*hh*:*mm*:*ss*Z\)
 **SystemEndpoint**  
 The system endpoint\. For `INBOUND`, this is the phone number that the customer dialed\. For `OUTBOUND`, this is the outbound caller ID number assigned to the outbound queue that is used to dial the customer\. For callback, this shows up as `Softphone` for calls handled by agents with softphone\.  
 Type: [Endpoint](#ctr-endpoint)
+
+**Tags**  
+???
 
 **TransferCompletedTimestamp**  
 If this contact was transferred out of Amazon Connect, the date and time the transfer endpoint was connected, in UTC time\.  
@@ -406,14 +427,16 @@ Where the recording/transcript is stored\.
 Type: String  
 Valid values: Amazon S3 \| `KINESIS_VIDEO_STREAM` 
 
-## References<a name="ctr-contact-references"></a>
+## Reference<a name="ctr-Reference"></a>
 
-Contains links to other documents that are related to a contact\.
+**name**  
+Type: String  
 
-**Reference Info**  
-ReferenceType  
-ContentType  
-Location
+**type**  
+Type: String  
+
+**value**  
+Type: String  
 
 ## RoutingProfile<a name="ctr-RoutingProfile"></a>
 
@@ -462,11 +485,11 @@ Length: 25 characters
 
 **SpeakerEnrolled**  
 Was the customer enrolled during this contact?  
-Type: Boolean
+Type: Boolean | `null`
 
 **SpeakerOptedOut**  
 Did the customer opt out during this contact?  
-Type: Boolean
+Type: Boolean | `null`
 
 ## Authentication<a name="ctr-Authentication"></a>
 
@@ -534,8 +557,10 @@ Length: 3
 
 **GeneratedFraudsterID**  
 The fraudster ID if the fraud type is Known Fraudster\.  
-Type: String  
+Type: String | `null`  
 Length: 25 characters
+
+## Tags<a name="ctr-Tags"></a>
 
 ## How to identify abandoned contacts<a name="abandoned-contact"></a>
 

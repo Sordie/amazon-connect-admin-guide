@@ -114,7 +114,7 @@ Type: [AgentHierarchyGroup](#ctr-AgentHierarchyGroup)
 ## Campaign<a name="ctr-campaign"></a>
 
 **CampaignId**  
-Type: String | `null`  
+Type: String \| `null`  
 
 ## ContactDetails<a name="ctr-contact-details"></a>
 
@@ -122,19 +122,31 @@ Contains user\-defined attributes which are lightly typed within the contact\.
 
 This object is used only for task contacts\. For voice or chat contacts, or for tasks that have contact attributes set with the flow block, check the [ContactTraceRecord](#ctr-ContactTraceRecord) Attributes object\. 
 
+**Name**  
+Name of the task\.  
+Type: String  
+
+**Description**  
+Description of the task\.  
+Type: String  
+
 **ContactDetailsName**  
+???  
 Type: String  
 Length: 1\-128
 
 **ContactDetailsValue**  
+???  
 Type: String  
 Length: 0\-1024
 
 **ReferenceAttributeName**  
+???  
 Type: String  
 Length: 1\-128
 
 **ReferenceAttributesValue**  
+???  
 Type: String  
 Length: 0\-1024
 
@@ -152,7 +164,7 @@ Type: Integer
 Min value: 0
 
 **AnsweringMachineDetectionStatus**
-Type: String | `null`  
+Type: String \| `null`  
 Valid values:
 + `AMD_UNRESOLVED`
 + `VOICEMAIL_BEEP`
@@ -429,13 +441,23 @@ Valid values: Amazon S3 \| `KINESIS_VIDEO_STREAM`
 
 ## Reference<a name="ctr-Reference"></a>
 
-**name**  
+**Name**  
+Name of the reference for a task or a UUID for a chat attachment\.  
 Type: String  
 
-**type**  
+**Type**  
+Value type of this reference\.  
 Type: String  
+Valid values:  
++ `ATTACHMENT`: A chat attachment reference
++ `DATE`: A task date reference *\(yyyy\-mm\-ddThh:mm:ssZ\)*
++ `STRING`: A task string reference
++ `NUMBER`: A task number reference
++ `EMAIL`: A task email reference
++ `URL`: A task url reference
 
-**value**  
+**Value**  
+Value of this reference\.  
 Type: String  
 
 ## RoutingProfile<a name="ctr-RoutingProfile"></a>
@@ -485,11 +507,11 @@ Length: 25 characters
 
 **SpeakerEnrolled**  
 Was the customer enrolled during this contact?  
-Type: Boolean | `null`
+Type: Boolean \| `null`
 
 **SpeakerOptedOut**  
 Did the customer opt out during this contact?  
-Type: Boolean | `null`
+Type: Boolean \| `null`
 
 ## Authentication<a name="ctr-Authentication"></a>
 
@@ -557,7 +579,7 @@ Length: 3
 
 **GeneratedFraudsterID**  
 The fraudster ID if the fraud type is Known Fraudster\.  
-Type: String | `null`  
+Type: String \| `null`  
 Length: 25 characters
 
 ## Tags<a name="ctr-Tags"></a>
